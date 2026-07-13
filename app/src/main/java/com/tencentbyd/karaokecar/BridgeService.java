@@ -35,7 +35,6 @@ public class BridgeService extends Service {
         startForeground(NOTIFICATION_ID, buildNotification("Starting compatibility bridge…"));
         acquireWakeLock();
         createMediaSession();
-        startSilentPlayback();
         KaraokeSignals.enter(this);
         BridgeLog.i(this, "BridgeService created; package=" + getPackageName());
     }
