@@ -127,7 +127,7 @@ public class MainActivity extends Activity {
         boolean youtube = isInstalled("com.android.youtube.premium") || isInstalled("com.google.android.youtube");
         boolean mini = isInstalled("com.byd.minikaraoke");
         String text = "Bridge package: " + getPackageName()
-                + "\nVersion: " + BuildConfig.VERSION_NAME
+                + "\nVersion: " + "1.0"
                 + "\nYouTube installed: " + youtube
                 + "\nMiniKaraoke installed: " + mini
                 + "\nLog: " + BridgeLog.getLogFile(this).getAbsolutePath();
