@@ -40,20 +40,5 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".BridgeService"
-            android:exported="false"
-            android:foregroundServiceType="mediaPlayback" />
-
-        <receiver
-            android:name=".BridgeReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.tencentbyd.karaokecar.START_BRIDGE" />
-                <action android:name="com.tencentbyd.karaokecar.STOP_BRIDGE" />
-                <action android:name="byd.intent.action.ENTER_KARAOKE_MODE" />
-                <action android:name="byd.intent.action.EXIT_KARAOKE_MODE" />
-            </intent-filter>
-        </receiver>
     </application>
 </manifest>
