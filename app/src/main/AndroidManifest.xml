@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <queries>
+        <package android:name="com.android.youtube.premium" />
+        <package android:name="com.google.android.youtube" />
+        <package android:name="com.android.youtube.music.premium" />
+        <package android:name="com.byd.minikaraoke" />
+    </queries>
+
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/ic_bridge"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.changba.karaoke.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="bydkaraoke" android:host="youtube" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".BridgeService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+
+        <receiver
+            android:name=".BridgeReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.tencentbyd.karaokecar.START_BRIDGE" />
+                <action android:name="com.tencentbyd.karaokecar.STOP_BRIDGE" />
+                <action android:name="byd.intent.action.ENTER_KARAOKE_MODE" />
+                <action android:name="byd.intent.action.EXIT_KARAOKE_MODE" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>
